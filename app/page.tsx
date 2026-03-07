@@ -2,6 +2,7 @@
 import { useState } from "react"
 import SoundGrid from "./components/features/SoundGrid"
 import VolumePanel from "./components/features/VolumePanel"
+import TimerPanel from "./components/features/TimerPanel"
 
 const sounds = [
   { id: "rain", emoji: "🌧️", label: "Rain", name: "雨" },
@@ -56,12 +57,7 @@ export default function Home() {
         {/* コントロールパネル */}
         <div className="w-72 flex flex-col gap-4">
           <VolumePanel sounds={sounds} activeSounds={activeSounds} />
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-            <p className="text-xs tracking-widest uppercase text-white/40 mb-4">
-              Timer
-            </p>
-            <p className="text-white/40 text-sm">ここにタイマーが入ります</p>
-          </div>
+          <TimerPanel />
         </div>
       </main>
 
