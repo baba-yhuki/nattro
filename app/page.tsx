@@ -1,3 +1,5 @@
+"use client"
+import { useState } from "react"
 import SoundGrid from "./components/features/SoundGrid"
 
 const sounds = [
@@ -17,6 +19,16 @@ const sounds = [
 
 
 export default function Home() {
+  const [activeSounds, setActiveSounds] = useState<string[]>([])
+
+  const toggleSound = (id: string) => {
+    setActiveSounds((prev) =>
+      prev.includes(id)
+        ? prev.filter((s) => s !== id)
+        : [...prev, id]
+    )
+  }
+
   return (
     <div className="min-h-screen flex flex-col">
 
@@ -37,7 +49,7 @@ export default function Home() {
           <h1 className="text-4xl font-light italic mb-8">
             雨の夜
           </h1>
-          <SoundGrid sounds={sounds} />
+          <SoundGrid sounds={sounds} activeSounds={activeSounds} onToggle={toggleSound} />
         </div>
 
         {/* コントロールパネル */}
