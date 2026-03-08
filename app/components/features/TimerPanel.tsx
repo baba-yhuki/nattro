@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const modes = ["集中", "睡眠", "休憩"]
+const modes: ("集中" | "睡眠" | "休憩")[] = ["集中", "睡眠", "休憩"]
 
 const modeLabels = {
   集中: "FOCUS MODE",
