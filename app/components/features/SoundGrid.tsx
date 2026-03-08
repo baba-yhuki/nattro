@@ -1,5 +1,5 @@
 import SoundCard from "./SoundCard"
-import { Sound } from "@/types/sound"
+import type { Sound } from "@/types/sound"
 
 type Props = {
   sounds: Sound[]

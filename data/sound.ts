@@ -1,7 +1,7 @@
-import { Sound } from "@/types/sound";
+import type { Sound } from "@/types/sound";
 
 export const sounds: Sound[] = [
-  { id: "rain", emoji: "🌧️", label: "Rain", name: "雨" },
+  { id: "rain", emoji: "🌧️", label: "Rain", name: "雨", audioSrc: "/sounds/rain.mp3" },
   { id: "thunder", emoji: "⚡", label: "Thunder", name: "雷" },
   { id: "wave", emoji: "🌊", label: "Waves", name: "波" },
   { id: "wind", emoji: "🍃", label: "Wind", name: "風" },

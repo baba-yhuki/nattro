@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import { useAudioPlayer } from "@/hooks/useAudioPlayer"
 import SoundGrid from "./components/features/SoundGrid"
 import VolumePanel from "./components/features/VolumePanel"
 import TimerPanel from "./components/features/TimerPanel"
@@ -12,16 +13,26 @@ export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false)
 
   const toggleSound = (id: string) => {
-    setActiveSounds((prev) =>
-      prev.includes(id)
+    setActiveSounds((prev) => {
+      const next = prev.includes(id)
         ? prev.filter((s) => s !== id)
         : [...prev, id]
+
+      if (next.length > 0) {
+        setIsPlaying(true)
+      } else {
+        setIsPlaying(false)
+      }
+      return next
+    }
     )
   }
 
   const onTogglePlay = () => {
     setIsPlaying((prev) => !prev)
   }
+
+  useAudioPlayer(sounds, activeSounds, isPlaying)
 
   const sceneName =
     activeSounds.length === 0

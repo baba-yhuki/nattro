@@ -1,5 +1,5 @@
 import { PlayIcon, PauseIcon } from "@heroicons/react/24/solid"
-import { Sound } from "@/types/sound"
+import type { Sound } from "@/types/sound"
 
 
 type Props = {

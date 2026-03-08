@@ -3,4 +3,5 @@ export type Sound = {
   emoji: string
   label: string
   name: string
+  audioSrc: string
 }
