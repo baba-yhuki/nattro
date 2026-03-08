@@ -23,6 +23,13 @@ export default function Home() {
     setIsPlaying((prev) => !prev)
   }
 
+  const sceneName =
+    activeSounds.length === 0
+      ? "静寂"
+      : activeSounds.length === 1
+        ? sounds.find((s) => s.id === activeSounds[0])?.name ?? "静寂"
+        : "カスタムミックス"
+
   return (
     <div className="min-h-screen flex flex-col">
 
@@ -41,7 +48,7 @@ export default function Home() {
             現在のシーン
           </p>
           <h1 className="text-4xl font-light italic mb-8">
-            雨の夜
+            {sceneName}
           </h1>
           <SoundGrid sounds={sounds} activeSounds={activeSounds} onToggle={toggleSound} />
         </div>
