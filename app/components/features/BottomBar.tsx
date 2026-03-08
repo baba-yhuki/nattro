@@ -1,3 +1,4 @@
+import { PlayIcon, PauseIcon } from "@heroicons/react/24/solid"
 import { Sound } from "@/types/sound"
 
 
@@ -32,8 +33,11 @@ export default function BottomBar({ sounds, activeSounds, isPlaying, onTogglePla
         onClick={onTogglePlay}
         className="w-12 h-12 rounded-full bg-blue-400 flex items-center justify-center text-black text-lg transition-all hover:scale-105"
       >
-        {/* isPlayingがtrueなら"⏸"、falseなら"▶" */}
-        {isPlaying ? "⏸" : "▶"}
+        {isPlaying ? (
+          <PauseIcon className="w-5 h-5" />
+        ) : (
+          <PlayIcon className="w-5 h-5" />
+        )}
       </button>
 
       {/* 右：余白（将来的に機能追加予定） */}
