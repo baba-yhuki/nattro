@@ -3,6 +3,7 @@ import { useState } from "react"
 import SoundGrid from "./components/features/SoundGrid"
 import VolumePanel from "./components/features/VolumePanel"
 import TimerPanel from "./components/features/TimerPanel"
+import BottomBar from "./components/features/BottomBar"
 
 const sounds = [
   { id: "rain", emoji: "🌧️", label: "Rain", name: "雨" },
@@ -22,6 +23,7 @@ const sounds = [
 
 export default function Home() {
   const [activeSounds, setActiveSounds] = useState<string[]>([])
+  const [isPlaying, setIsPlaying] = useState(false)
 
   const toggleSound = (id: string) => {
     setActiveSounds((prev) =>
@@ -29,6 +31,10 @@ export default function Home() {
         ? prev.filter((s) => s !== id)
         : [...prev, id]
     )
+  }
+
+  const onTogglePlay = () => {
+    setIsPlaying((prev) => !prev)
   }
 
   return (
@@ -62,11 +68,7 @@ export default function Home() {
       </main>
 
       {/* ボトムバー */}
-      <div className="h-20 border-t border-white/10 flex items-center justify-center px-8">
-        <button className="w-12 h-12 rounded-full bg-blue-400 flex items-center justify-center text-black">
-          ▶
-        </button>
-      </div>
+      <BottomBar sounds={sounds} activeSounds={activeSounds} isPlaying={isPlaying} onTogglePlay={onTogglePlay} />
 
     </div>
   )

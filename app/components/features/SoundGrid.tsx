@@ -1,11 +1,5 @@
 import SoundCard from "./SoundCard"
-
-type Sound = {
-  id: string
-  emoji: string
-  label: string
-  name: string
-}
+import { Sound } from "@/types/sound"
 
 type Props = {
   sounds: Sound[]
