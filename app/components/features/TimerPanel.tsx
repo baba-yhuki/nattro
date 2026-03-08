@@ -15,7 +15,7 @@ const durationsByMode = {
 }
 
 export default function TimerPanel() {
-  const [activeMode, setActiveMode] = useState("集中")
+  const [activeMode, setActiveMode] = useState<"集中" | "睡眠" | "休憩">("集中")
   const [activeDuration, setActiveDuration] = useState("25:00")
   const durations = durationsByMode[activeMode]
 
